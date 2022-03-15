@@ -11,6 +11,7 @@ const singerStyle ={
 }
 
 function App() {
+  const nayoks = ['Rubel','Bapparaz','Kuber']
   return (
     <div className="App">
       <Person name="Prottoy Heron" age="40" profession="Actor"></Person>
