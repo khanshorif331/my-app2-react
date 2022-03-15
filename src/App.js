@@ -13,10 +13,10 @@ const singerStyle ={
 function App() {
   return (
     <div className="App">
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
+      <Person name="Prottoy Heron" age="40" profession="Actor"></Person>
+      <Person name="Saiful Sumon" age="23" profession="Student"></Person>
+      <Person name="Abdulla Al Erfan" age="35" profession="Manager"></Person>
+      <Person name="Mazharul Islam" age="31" profession="Trader"></Person>
       <h5>New Component!!!Yeee!!!</h5>
       <Friend></Friend>
       <Friend></Friend>
@@ -27,11 +27,12 @@ function App() {
 }
 
 
-function Person(){
+function Person(props){
   return (
     <div className="person">
-      <h1>Sakib Al Hasan</h1>
-      <p>Profession: Cricket</p>
+      <h1>{props.name}</h1>
+      <p>Profession: {props.profession}</p>
+      <p>Age:{props.age}</p>
     </div>
   )
 }
