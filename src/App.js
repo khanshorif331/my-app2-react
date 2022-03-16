@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const number = 55555
 const singers = [
@@ -16,15 +16,58 @@ const singerStyle ={
 }
 
 
+
+// this portion is for the state changing
+
 function App() {
   
   return ( 
     <div className="App">
-      <Counter></Counter>
-
+      {/* <Counter></Counter> */}
+      <ExternalUsers></ExternalUsers>
     </div>
   );
 }
+
+
+function ExternalUsers(){
+  const [users, setUsers] = useState([])
+   useEffect( ()=>{
+     fetch('https://jsonplaceholder.typicode.com/users')
+     .then(res=>res.json())
+     .then(data=>setUsers(data))
+   },[])
+  
+
+  return(
+    <div>
+      
+      <h1>External Users</h1>
+      <h2>{users.length}</h2>
+      {
+        users.map(user=><User name={user.name} email={user.email}></User>)
+      }
+    </div>
+  )
+}
+function User (props){
+  console.log(props);
+  return (
+    <div>
+      <h2>{props.name}</h2>
+      <p>Email: {props.email}</p>
+    </div>
+
+  )
+}
+
+
+
+
+
+
+
+
 
 function Counter (){
   const [count,setCount]=useState(20)
@@ -40,6 +83,13 @@ function Counter (){
   )
 }
 
+
+
+
+
+
+
+// this portion is for the components and the dynamically changed data
 
 
 
