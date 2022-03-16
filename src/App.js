@@ -2,8 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 
 const number = 55555
-const singer = {name: 'Dr Mahfuz', job: 'singer'}
-const singer2 = {name: 'Eva Rahman', job: 'singer'}
+const singers = [
+                  {name: 'Dr Mahfuz', job: 'singer'},
+                  {name: 'Eva Rahman', job: 'singer'},
+                  {name: 'Agun', job: 'shopno'},
+                  {name: 'Shuvrodev', job: 'pathor'}
+                  ]
 
 const singerStyle ={
   color: 'purple',
@@ -11,9 +15,20 @@ const singerStyle ={
 }
 
 function App() {
-  const nayoks = ['Rubel','Bapparaz','Kuber']
-  return (
-    <div className="App">
+  const nayoks = ['Rubel','Bapparaz','Kuber','Nayan','Pappi']
+  
+  return ( 
+    <div className="App">    
+      {
+        nayoks.map(nayok=><li>Name: {nayok}</li>)
+      }
+      {/* {
+        nayoks.map(nayok=><Person name={nayok}></Person>)
+      } */}
+      {
+        singers.map(singer=><Person name={singer.name}></Person>)
+      }
+      
       <Person name="Prottoy Heron" age="40" profession="Actor"></Person>
       <Person name="Saiful Sumon" age="23" profession="Student"></Person>
       <Person name="Abdulla Al Erfan" age="35" profession="Manager"></Person>
@@ -39,6 +54,7 @@ function Person(props){
 }
 
 function Friend (){
+  // console.log(props);
   return(
     <div className='container'>
       <h3>Name: Ajay Devgun</h3>
